@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bg-primary: #F8F9FD;
+    --bg-surface: #FFFFFF;
+    --bg-surface-alt: #F0F2F9;
+    --text-primary: #0F111A;
+    --text-muted: #525C76;
+    --border-accent: #2D3FE7;
+  }
+
+  .dark {
+    --bg-primary: #0F111A;
+    --bg-surface: #1A1D29;
+    --bg-surface-alt: #0F111A;
+    --text-primary: #F8F9FF;
+    --text-muted: #94A3B8;
+    --border-accent: #2D3FE7;
+  }
+
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Vibrant Palette Utility Shadows & Borders */
+.shadow-vibrant-purple {
+  box-shadow: 4px 4px 0px #9D50FF;
+}
+
+.shadow-vibrant-blue {
+  box-shadow: 4px 4px 0px #2D3FE7;
+}
+
+.shadow-vibrant-dark {
+  box-shadow: 4px 4px 0px #0F111A;
+}
+
+.shadow-vibrant-white {
+  box-shadow: 4px 4px 0px #FFFFFF;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2D3FE7;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9D50FF;
+}
+
+/* Utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Respect user's reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Respect the user's reduced-motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html { scroll-behavior: auto !important; }
+}
